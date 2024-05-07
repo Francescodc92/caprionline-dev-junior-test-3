@@ -10,14 +10,14 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchMovies = (sortInput) => {
+  const fetchMovies = (nameInput, sortInput) => {
     setLoading(true);
 
     setMovies([]);
     let url = 'http://localhost:8000/movies';
 
     if (sortInput && sortInput !== 'Ordina Per Data') {
-      url = `${url}?releaseDate=${sortInput}`;
+      url = `${url}?${nameInput}=${sortInput}`;
     }
 
     return fetch(url)
