@@ -36,4 +36,13 @@ class MoviesController extends AbstractController
 
         return new JsonResponse($data, json: true);
     }
+
+    #[Route('/genre/{id}/movies', methods: ['GET'])]
+    public function listGenreMovies(int $id): JsonResponse
+    {
+        $movies = $this->movieRepository->findMoviesByGenreId($id);
+        $data = $this->serializer->serialize($movies, "json", ["groups" => "default"]);
+
+        return new JsonResponse($data, json: true);
+    }
 }
