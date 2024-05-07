@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import Heading from './components/Heading';
 import Layout from './Layout';
 import MovieList from './components/movie/MovieList';
+import { Spinner } from 'flowbite-react';
+import FilterMovie from './components/FilterMovie';
 
 
 const App = () => {
@@ -14,7 +16,6 @@ const App = () => {
     return fetch('http://localhost:8000/movies')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setMovies(data);
         setLoading(false);
       });
@@ -27,7 +28,17 @@ const App = () => {
   return (
     <Layout>
       <Heading />
-      <MovieList isLoading={loading} movies={movies} />
+      <FilterMovie />
+      {
+        loading && movies.length === 0 ? (
+          <div className="text-center">
+            <Spinner size="xl" />
+          </div>
+        ) : (
+        <MovieList movies={movies} />
+        )
+
+      }
     </Layout>
   );
 };
