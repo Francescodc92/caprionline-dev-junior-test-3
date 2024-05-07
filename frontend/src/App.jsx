@@ -10,10 +10,17 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchMovies = () => {
+  const fetchMovies = (sortInput) => {
     setLoading(true);
 
-    return fetch('http://localhost:8000/movies')
+    setMovies([]);
+    let url = 'http://localhost:8000/movies';
+
+    if (sortInput && sortInput !== 'Ordina Per Data') {
+      url = `${url}?releaseDate=${sortInput}`;
+    }
+
+    return fetch(url)
       .then(response => response.json())
       .then(data => {
         setMovies(data);
@@ -28,7 +35,7 @@ const App = () => {
   return (
     <Layout>
       <Heading />
-      <FilterMovie />
+      <FilterMovie fetchMovies={fetchMovies} />
       {
         loading && movies.length === 0 ? (
           <div className="text-center">
