@@ -1,19 +1,7 @@
 import { Button, Rating} from 'flowbite-react';
-import React from 'react';
 
-interface MovieItemProps {
-  movie: {  
-    id: number;
-    title: string;
-    year: string;
-    rating: number;
-    imageUrl: string;
-    plot: string;
-    wikipediaUrl: string;
-  }
-}
 
-const MovieItem = ({movie}: MovieItemProps) => {
+const MovieItem = (movie) => {
   return (
     <div className="flex flex-col w-full h-full rounded-lg shadow-md lg:max-w-sm">
       <div className="grow">

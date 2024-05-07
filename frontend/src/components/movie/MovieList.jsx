@@ -1,11 +1,7 @@
-import React from 'react';
 import { Spinner } from 'flowbite-react';
 import MovieItem from './MovieItem';
-interface MovieListProps {
-  isLoading: boolean;
-  movies: any[];
-}
-const MovieList = ({ isLoading , movies} : MovieListProps) => {
+
+const MovieList = ( isLoading , movies) => {
   return ( 
     
       isLoading ? (

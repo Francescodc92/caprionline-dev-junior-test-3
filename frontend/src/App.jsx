@@ -1,10 +1,10 @@
-import React ,{ useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Heading from './components/Heading';
 import Layout from './Layout';
 import MovieList from './components/movie/MovieList';
 
 
-const App = props => {
+const App = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
