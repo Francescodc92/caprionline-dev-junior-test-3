@@ -20,11 +20,14 @@ class MoviesController extends AbstractController
     public function list(Request $request): JsonResponse
     {
         $dateOrder = $request->query->get('releaseDate');
+        $ratingOrder = $request->query->get('rating');
 
         $queryBuilder = $this->movieRepository->createQueryBuilder('m');
 
         if ($dateOrder) {
             $queryBuilder->orderBy('m.releaseDate', $dateOrder);
+        }else if ($ratingOrder) {
+            $queryBuilder->orderBy('m.rating', $ratingOrder);
         }
 
         $movies = $queryBuilder->getQuery()->getResult();
