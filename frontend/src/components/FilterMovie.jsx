@@ -20,19 +20,21 @@ const FilterMovie = ({fetchMovies}) => {
   }
 
   return ( 
-    <div className="mx-auto border-2 my-8 lg:mb-16">
-        <select id="releaseDate" value={sortInput == "" ? "ordina-per-data" : sortInput} onChange={handleInputChange}>
-          <option disabled value="ordina-per-data">Ordina Per Data</option>
-          <option value="desc">Recenti</option>
-          <option value="asc">Meno Recenti</option>
-        </select>
+  
+    <div >
+      <select className="border-1 border-gray-300 text-sm" id="releaseDate" value={sortInput == "" ? "ordina-per-data" : sortInput} onChange={handleInputChange}>
+        <option disabled value="ordina-per-data">Ordina Per Data</option>
+        <option value="desc">Recenti</option>
+        <option value="asc">Meno Recenti</option>
+      </select>
 
-        <select id="rating" value={ratingInput == "" ? "ordina-per-numero-di-voti" : ratingInput} onChange={handleInputChange}>
-          <option disabled value="ordina-per-numero-di-voti" >Ordina Per numero di voti</option>
-          <option value="desc">Più votati</option>
-          <option value="asc">Meno votati</option>
-        </select>
+      <select className="border-1 border-gray-300 text-sm" id="rating" value={ratingInput == "" ? "ordina-per-numero-di-voti" : ratingInput} onChange={handleInputChange}>
+        <option disabled value="ordina-per-numero-di-voti" >Ordina Per numero di voti</option>
+        <option value="desc">Più votati</option>
+        <option value="asc">Meno votati</option>
+      </select>
     </div>
+
   );
 }
  
