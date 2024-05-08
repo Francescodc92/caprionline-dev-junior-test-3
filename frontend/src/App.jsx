@@ -49,7 +49,7 @@ const App = () => {
   return (
     <Layout>
       <Heading />
-      <div className="mx-auto my-8 lg:mb-16 flex items-center justify-between">
+      <div className="mx-auto my-8 lg:mb-16 flex flex-col items-center justify-between sm:flex-row ">
         <FilterMovie fetchMovies={fetchMovies} />
         <FilterGenre genres={genres} fetchMovies={fetchMovies}/>
       </div>
@@ -59,7 +59,7 @@ const App = () => {
             <Spinner size="xl" />
           </div>
         ) : (
-        <MovieList movies={movies}/>
+          <MovieList movies={movies}/>
         )
 
       }
