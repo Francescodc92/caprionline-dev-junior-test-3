@@ -13,9 +13,9 @@ const FilterCategory = ({genres ,fetchMovies}) => {
   }
 
   return ( 
-    <div>
+    <div className="w-full sm:w-auto">
         
-      <select className="border-1 border-gray-300 text-sm" id="genre" value={genreInput == "" ? "order-by-genre" : genreInput} onChange={handleInputChange}>
+      <select className="w-full sm:w-auto border-1 border-gray-300 text-sm" id="genre" value={genreInput == "" ? "order-by-genre" : genreInput} onChange={handleInputChange}>
         <option disabled value="order-by-genre">Ordina Per Genere</option>
         {genres.map((genre) => (
           <option key={genre.id} value={genre.id}>{genre.name}</option>
